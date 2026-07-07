@@ -191,9 +191,16 @@
     }
 }
 
+@utility sidebar__menu--item {
+    @apply flex gap-4 items-center px-4 py-3 rounded hover:bg-sidebar-accent transition-all
+}
+
+@utility container {
+    @apply max-w-[90%] mx-auto
+}
 
 @layer components {
-    .sidebar__menu--item {
-        @apply flex gap-4 items-center px-4 py-3 rounded hover:bg-sidebar-accent transition-all
+    .sidebar__menu--item-active {
+        @apply sidebar__menu--item bg-linear-to-r from-primary to-blue-400 text-white
     }
 }

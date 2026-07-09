@@ -1,0 +1,39 @@
+generator client {
+    provider = "prisma-client"
+    output   = "../src/generated/prisma"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+model Property {
+    id           Int           @id @default(autoincrement())
+    name         String        @db.VarChar(255)
+    codigo       String        @unique @db.VarChar(255)
+    price        Float
+    rooms        Int
+    bathrooms    Int
+    squareMeters Float
+    location     String        @db.VarChar(255)
+    description  String        @db.Text
+    imageUrl     String        @db.VarChar(255)
+    state        PropertyState
+    type         PropertyType
+    createdAt    DateTime      @default(now())
+    updatedAt    DateTime      @updatedAt
+}
+
+enum PropertyState {
+    Disponible
+    Inactivo
+    Ocupado
+    Reservado
+    Matenimiento
+}
+
+enum PropertyType {
+    Departamento
+    Suite
+    Casa
+}
